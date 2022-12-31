@@ -1,0 +1,23 @@
+[data-react] {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 4fr 1fr;
+    height: 100%;
+}
+
+.app-editor {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 2;
+    border-right: 1px solid black;
+}
+.app-canvas {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+}
+.app-console {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+
+    border-top: 1px solid black;
+    overflow: scroll;
+}
