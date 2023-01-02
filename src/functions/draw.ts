@@ -24,7 +24,7 @@ export const draw = (canvas: HTMLCanvasElement, state: State) => {
             strokeWidth: 2
         });
 
-        const attributes = Object.entries(value);
+        const attributes = Object.entries(value.attributes);
 
         attributes.forEach(([attrName, attrValue], j) => {
             new paper.Path.Rectangle({

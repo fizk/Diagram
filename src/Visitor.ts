@@ -1,7 +1,7 @@
-import diagramVisitor from './diagram/diagramVisitor'
-import { State } from './types.d';
+import DiagramParserVisitor from './diagram/DiagramParserVisitor'
+import { State, Definition } from './types.d';
 
-export default class Visitor extends diagramVisitor {
+export default class Visitor extends DiagramParserVisitor {
     state: State;
 
     constructor(state: State) {
@@ -60,10 +60,21 @@ export default class Visitor extends diagramVisitor {
      * @returns
      */
     visitDefinition(ctx: any) {
+        const value: Definition = {
+            attributes: {},
+            description: null
+        };
+
+
         const name = ctx.SYMBOL().getText()
         const attributes = this._extractAttributes(ctx.attributes());
+        const description = ctx.description()?.description_string()?.getText() || null
 
-        this.state.table[name] = attributes;
+        this.state.table[name] = {
+            ...value,
+            attributes,
+            description
+        };
         return this.visitChildren(ctx);
 	}
 
@@ -179,15 +190,12 @@ export default class Visitor extends diagramVisitor {
 	// }
 
     _extractAttributes(/* AttributesContext */ attributes: any) {
-        const attributeList /* : AttributeContext[] */ = attributes?.attribute() || [];
+        const attributeList: any[] /* : AttributeContext[] */ = attributes?.attribute() || [];
 
-        return attributeList.map((attr: any) => {
-            const left = attr.ATTR(0);
-            const right = attr.ATTR(1);
-
-            return {
-                [left.getText()]: right ? right.getText() : undefined
-            }
-        })
+        return attributeList?.reduce((accumulator, currentValue) => {
+            const left = currentValue.ATTR(0);
+            const right = currentValue.ATTR(1);
+            return { ...accumulator, ...{ [left.getText()]: right ? right.getText() : undefined }}
+        }, {});
     }
 }

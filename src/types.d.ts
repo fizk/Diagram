@@ -1,7 +1,17 @@
 import type { ViewUpdate } from "@codemirror/view";
+
+export type Maybe<T> = null | undefined | T
+
+export type Attribute = Record<string, Maybe<string>>
+
+export interface Definition {
+    description: Maybe<string>,
+    attributes: Attribute,
+}
+
 export interface State {
-    attributes: Array<Record<string, string>>[],
-    table: Record<string, Array<Record<string, string>>>,
+    attributes: Attribute,
+    table: Record<string, Definition>,
     sections: Record<string, any>,
     tree: Record<string, any>,
 }

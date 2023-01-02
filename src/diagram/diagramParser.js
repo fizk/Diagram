@@ -1,70 +1,82 @@
-// Generated from diagram.g4 by ANTLR 4.9.2
+// Generated from DiagramParser.g4 by ANTLR 4.9.2
 // jshint ignore: start
 import antlr4 from 'antlr4';
-import diagramListener from './diagramListener.js';
-import diagramVisitor from './diagramVisitor.js';
+import DiagramParserListener from './DiagramParserListener.js';
+import DiagramParserVisitor from './DiagramParserVisitor.js';
 
 
 const serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786",
-    "\u5964\u0003\u000fm\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004",
-    "\t\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t\u0007",
-    "\u0004\b\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0004\f\t\f",
-    "\u0004\r\t\r\u0004\u000e\t\u000e\u0003\u0002\u0003\u0002\u0007\u0002",
-    "\u001f\n\u0002\f\u0002\u000e\u0002\"\u000b\u0002\u0003\u0002\u0003\u0002",
-    "\u0003\u0003\u0003\u0003\u0005\u0003(\n\u0003\u0003\u0003\u0003\u0003",
-    "\u0003\u0004\u0003\u0004\u0005\u0004.\n\u0004\u0003\u0004\u0003\u0004",
-    "\u0003\u0005\u0006\u00053\n\u0005\r\u0005\u000e\u00054\u0003\u0006\u0003",
-    "\u0006\u0005\u00069\n\u0006\u0003\u0007\u0006\u0007<\n\u0007\r\u0007",
-    "\u000e\u0007=\u0003\b\u0003\b\u0005\bB\n\b\u0003\b\u0003\b\u0005\bF",
-    "\n\b\u0003\b\u0003\b\u0005\bJ\n\b\u0005\bL\n\b\u0003\t\u0003\t\u0003",
+    "\u5964\u0003\u0012\u0083\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004",
+    "\u0004\t\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t",
+    "\u0007\u0004\b\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0004",
+    "\f\t\f\u0004\r\t\r\u0004\u000e\t\u000e\u0004\u000f\t\u000f\u0004\u0010",
+    "\t\u0010\u0003\u0002\u0003\u0002\u0007\u0002#\n\u0002\f\u0002\u000e",
+    "\u0002&\u000b\u0002\u0003\u0002\u0003\u0002\u0003\u0003\u0003\u0003",
+    "\u0005\u0003,\n\u0003\u0003\u0003\u0003\u0003\u0003\u0004\u0003\u0004",
+    "\u0005\u00042\n\u0004\u0003\u0004\u0003\u0004\u0003\u0005\u0006\u0005",
+    "7\n\u0005\r\u0005\u000e\u00058\u0003\u0006\u0003\u0006\u0005\u0006=",
+    "\n\u0006\u0003\u0006\u0005\u0006@\n\u0006\u0003\u0007\u0006\u0007C\n",
+    "\u0007\r\u0007\u000e\u0007D\u0003\b\u0003\b\u0005\bI\n\b\u0003\b\u0005",
+    "\bL\n\b\u0003\b\u0003\b\u0005\bP\n\b\u0003\b\u0005\bS\n\b\u0003\b\u0003",
+    "\b\u0005\bW\n\b\u0003\b\u0005\bZ\n\b\u0005\b\\\n\b\u0003\t\u0003\t\u0003",
     "\t\u0003\t\u0003\n\u0003\n\u0003\n\u0003\n\u0003\n\u0003\u000b\u0007",
-    "\u000bX\n\u000b\f\u000b\u000e\u000b[\u000b\u000b\u0003\f\u0003\f\u0003",
-    "\r\u0003\r\u0007\ra\n\r\f\r\u000e\rd\u000b\r\u0003\r\u0003\r\u0003\u000e",
-    "\u0003\u000e\u0003\u000e\u0005\u000ek\n\u000e\u0003\u000e\u0002\u0002",
-    "\u000f\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0016\u0018\u001a",
-    "\u0002\u0002\u0002m\u0002\u001c\u0003\u0002\u0002\u0002\u0004%\u0003",
-    "\u0002\u0002\u0002\u0006+\u0003\u0002\u0002\u0002\b2\u0003\u0002\u0002",
-    "\u0002\n6\u0003\u0002\u0002\u0002\f;\u0003\u0002\u0002\u0002\u000eK",
-    "\u0003\u0002\u0002\u0002\u0010M\u0003\u0002\u0002\u0002\u0012Q\u0003",
-    "\u0002\u0002\u0002\u0014Y\u0003\u0002\u0002\u0002\u0016\\\u0003\u0002",
-    "\u0002\u0002\u0018^\u0003\u0002\u0002\u0002\u001ag\u0003\u0002\u0002",
-    "\u0002\u001c \u0005\u0004\u0003\u0002\u001d\u001f\u0005\u0006\u0004",
-    "\u0002\u001e\u001d\u0003\u0002\u0002\u0002\u001f\"\u0003\u0002\u0002",
-    "\u0002 \u001e\u0003\u0002\u0002\u0002 !\u0003\u0002\u0002\u0002!#\u0003",
-    "\u0002\u0002\u0002\" \u0003\u0002\u0002\u0002#$\u0007\u0002\u0002\u0003",
-    "$\u0003\u0003\u0002\u0002\u0002%\'\u0007\u0003\u0002\u0002&(\u0005\u0018",
-    "\r\u0002\'&\u0003\u0002\u0002\u0002\'(\u0003\u0002\u0002\u0002()\u0003",
-    "\u0002\u0002\u0002)*\u0005\b\u0005\u0002*\u0005\u0003\u0002\u0002\u0002",
-    "+-\u0007\u0004\u0002\u0002,.\u0005\u0018\r\u0002-,\u0003\u0002\u0002",
-    "\u0002-.\u0003\u0002\u0002\u0002./\u0003\u0002\u0002\u0002/0\u0005\f",
-    "\u0007\u00020\u0007\u0003\u0002\u0002\u000213\u0005\n\u0006\u000221",
-    "\u0003\u0002\u0002\u000234\u0003\u0002\u0002\u000242\u0003\u0002\u0002",
-    "\u000245\u0003\u0002\u0002\u00025\t\u0003\u0002\u0002\u000268\u0007",
-    "\u000b\u0002\u000279\u0005\u0018\r\u000287\u0003\u0002\u0002\u00028",
-    "9\u0003\u0002\u0002\u00029\u000b\u0003\u0002\u0002\u0002:<\u0005\u000e",
-    "\b\u0002;:\u0003\u0002\u0002\u0002<=\u0003\u0002\u0002\u0002=;\u0003",
-    "\u0002\u0002\u0002=>\u0003\u0002\u0002\u0002>\r\u0003\u0002\u0002\u0002",
-    "?A\u0005\u0010\t\u0002@B\u0005\u0018\r\u0002A@\u0003\u0002\u0002\u0002",
-    "AB\u0003\u0002\u0002\u0002BL\u0003\u0002\u0002\u0002CE\u0005\u0012\n",
-    "\u0002DF\u0005\u0018\r\u0002ED\u0003\u0002\u0002\u0002EF\u0003\u0002",
-    "\u0002\u0002FL\u0003\u0002\u0002\u0002GI\u0005\u0016\f\u0002HJ\u0005",
-    "\u0018\r\u0002IH\u0003\u0002\u0002\u0002IJ\u0003\u0002\u0002\u0002J",
-    "L\u0003\u0002\u0002\u0002K?\u0003\u0002\u0002\u0002KC\u0003\u0002\u0002",
-    "\u0002KG\u0003\u0002\u0002\u0002L\u000f\u0003\u0002\u0002\u0002MN\u0007",
-    "\u000b\u0002\u0002NO\u0007\n\u0002\u0002OP\u0007\u000b\u0002\u0002P",
-    "\u0011\u0003\u0002\u0002\u0002QR\u0007\u000b\u0002\u0002RS\u0007\u0005",
-    "\u0002\u0002ST\u0005\u0014\u000b\u0002TU\u0007\u0006\u0002\u0002U\u0013",
-    "\u0003\u0002\u0002\u0002VX\u0007\u000b\u0002\u0002WV\u0003\u0002\u0002",
-    "\u0002X[\u0003\u0002\u0002\u0002YW\u0003\u0002\u0002\u0002YZ\u0003\u0002",
-    "\u0002\u0002Z\u0015\u0003\u0002\u0002\u0002[Y\u0003\u0002\u0002\u0002",
-    "\\]\u0007\u000b\u0002\u0002]\u0017\u0003\u0002\u0002\u0002^b\u0007\u0007",
-    "\u0002\u0002_a\u0005\u001a\u000e\u0002`_\u0003\u0002\u0002\u0002ad\u0003",
-    "\u0002\u0002\u0002b`\u0003\u0002\u0002\u0002bc\u0003\u0002\u0002\u0002",
-    "ce\u0003\u0002\u0002\u0002db\u0003\u0002\u0002\u0002ef\u0007\b\u0002",
-    "\u0002f\u0019\u0003\u0002\u0002\u0002gj\u0007\f\u0002\u0002hi\u0007",
-    "\t\u0002\u0002ik\u0007\f\u0002\u0002jh\u0003\u0002\u0002\u0002jk\u0003",
-    "\u0002\u0002\u0002k\u001b\u0003\u0002\u0002\u0002\u000f \'-48=AEIKY",
-    "bj"].join("");
+    "\u000bh\n\u000b\f\u000b\u000e\u000bk\u000b\u000b\u0003\f\u0003\f\u0003",
+    "\r\u0003\r\u0007\rq\n\r\f\r\u000e\rt\u000b\r\u0003\r\u0003\r\u0003\u000e",
+    "\u0003\u000e\u0003\u000e\u0005\u000e{\n\u000e\u0003\u000f\u0003\u000f",
+    "\u0003\u000f\u0003\u000f\u0003\u0010\u0003\u0010\u0003\u0010\u0002\u0002",
+    "\u0011\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0016\u0018\u001a",
+    "\u001c\u001e\u0002\u0002\u0002\u0085\u0002 \u0003\u0002\u0002\u0002",
+    "\u0004)\u0003\u0002\u0002\u0002\u0006/\u0003\u0002\u0002\u0002\b6\u0003",
+    "\u0002\u0002\u0002\n:\u0003\u0002\u0002\u0002\fB\u0003\u0002\u0002\u0002",
+    "\u000e[\u0003\u0002\u0002\u0002\u0010]\u0003\u0002\u0002\u0002\u0012",
+    "a\u0003\u0002\u0002\u0002\u0014i\u0003\u0002\u0002\u0002\u0016l\u0003",
+    "\u0002\u0002\u0002\u0018n\u0003\u0002\u0002\u0002\u001aw\u0003\u0002",
+    "\u0002\u0002\u001c|\u0003\u0002\u0002\u0002\u001e\u0080\u0003\u0002",
+    "\u0002\u0002 $\u0005\u0004\u0003\u0002!#\u0005\u0006\u0004\u0002\"!",
+    "\u0003\u0002\u0002\u0002#&\u0003\u0002\u0002\u0002$\"\u0003\u0002\u0002",
+    "\u0002$%\u0003\u0002\u0002\u0002%\'\u0003\u0002\u0002\u0002&$\u0003",
+    "\u0002\u0002\u0002\'(\u0007\u0002\u0002\u0003(\u0003\u0003\u0002\u0002",
+    "\u0002)+\u0007\u0003\u0002\u0002*,\u0005\u0018\r\u0002+*\u0003\u0002",
+    "\u0002\u0002+,\u0003\u0002\u0002\u0002,-\u0003\u0002\u0002\u0002-.\u0005",
+    "\b\u0005\u0002.\u0005\u0003\u0002\u0002\u0002/1\u0007\u0004\u0002\u0002",
+    "02\u0005\u0018\r\u000210\u0003\u0002\u0002\u000212\u0003\u0002\u0002",
+    "\u000223\u0003\u0002\u0002\u000234\u0005\f\u0007\u00024\u0007\u0003",
+    "\u0002\u0002\u000257\u0005\n\u0006\u000265\u0003\u0002\u0002\u00027",
+    "8\u0003\u0002\u0002\u000286\u0003\u0002\u0002\u000289\u0003\u0002\u0002",
+    "\u00029\t\u0003\u0002\u0002\u0002:<\u0007\u0006\u0002\u0002;=\u0005",
+    "\u0018\r\u0002<;\u0003\u0002\u0002\u0002<=\u0003\u0002\u0002\u0002=",
+    "?\u0003\u0002\u0002\u0002>@\u0005\u001c\u000f\u0002?>\u0003\u0002\u0002",
+    "\u0002?@\u0003\u0002\u0002\u0002@\u000b\u0003\u0002\u0002\u0002AC\u0005",
+    "\u000e\b\u0002BA\u0003\u0002\u0002\u0002CD\u0003\u0002\u0002\u0002D",
+    "B\u0003\u0002\u0002\u0002DE\u0003\u0002\u0002\u0002E\r\u0003\u0002\u0002",
+    "\u0002FH\u0005\u0010\t\u0002GI\u0005\u0018\r\u0002HG\u0003\u0002\u0002",
+    "\u0002HI\u0003\u0002\u0002\u0002IK\u0003\u0002\u0002\u0002JL\u0005\u001c",
+    "\u000f\u0002KJ\u0003\u0002\u0002\u0002KL\u0003\u0002\u0002\u0002L\\",
+    "\u0003\u0002\u0002\u0002MO\u0005\u0012\n\u0002NP\u0005\u0018\r\u0002",
+    "ON\u0003\u0002\u0002\u0002OP\u0003\u0002\u0002\u0002PR\u0003\u0002\u0002",
+    "\u0002QS\u0005\u001c\u000f\u0002RQ\u0003\u0002\u0002\u0002RS\u0003\u0002",
+    "\u0002\u0002S\\\u0003\u0002\u0002\u0002TV\u0005\u0016\f\u0002UW\u0005",
+    "\u0018\r\u0002VU\u0003\u0002\u0002\u0002VW\u0003\u0002\u0002\u0002W",
+    "Y\u0003\u0002\u0002\u0002XZ\u0005\u001c\u000f\u0002YX\u0003\u0002\u0002",
+    "\u0002YZ\u0003\u0002\u0002\u0002Z\\\u0003\u0002\u0002\u0002[F\u0003",
+    "\u0002\u0002\u0002[M\u0003\u0002\u0002\u0002[T\u0003\u0002\u0002\u0002",
+    "\\\u000f\u0003\u0002\u0002\u0002]^\u0007\u0006\u0002\u0002^_\u0007\u0005",
+    "\u0002\u0002_`\u0007\u0006\u0002\u0002`\u0011\u0003\u0002\u0002\u0002",
+    "ab\u0007\u0006\u0002\u0002bc\u0007\n\u0002\u0002cd\u0005\u0014\u000b",
+    "\u0002de\u0007\u000b\u0002\u0002e\u0013\u0003\u0002\u0002\u0002fh\u0007",
+    "\u0006\u0002\u0002gf\u0003\u0002\u0002\u0002hk\u0003\u0002\u0002\u0002",
+    "ig\u0003\u0002\u0002\u0002ij\u0003\u0002\u0002\u0002j\u0015\u0003\u0002",
+    "\u0002\u0002ki\u0003\u0002\u0002\u0002lm\u0007\u0006\u0002\u0002m\u0017",
+    "\u0003\u0002\u0002\u0002nr\u0007\f\u0002\u0002oq\u0005\u001a\u000e\u0002",
+    "po\u0003\u0002\u0002\u0002qt\u0003\u0002\u0002\u0002rp\u0003\u0002\u0002",
+    "\u0002rs\u0003\u0002\u0002\u0002su\u0003\u0002\u0002\u0002tr\u0003\u0002",
+    "\u0002\u0002uv\u0007\r\u0002\u0002v\u0019\u0003\u0002\u0002\u0002wz",
+    "\u0007\u0007\u0002\u0002xy\u0007\u000e\u0002\u0002y{\u0007\u0007\u0002",
+    "\u0002zx\u0003\u0002\u0002\u0002z{\u0003\u0002\u0002\u0002{\u001b\u0003",
+    "\u0002\u0002\u0002|}\u0007\b\u0002\u0002}~\u0005\u001e\u0010\u0002~",
+    "\u007f\u0007\t\u0002\u0002\u007f\u001d\u0003\u0002\u0002\u0002\u0080",
+    "\u0081\u0007\u0012\u0002\u0002\u0081\u001f\u0003\u0002\u0002\u0002\u0013",
+    "$+18<?DHKORVY[irz"].join("");
 
 
 const atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -73,25 +85,28 @@ const decisionsToDFA = atn.decisionToState.map( (ds, index) => new antlr4.dfa.DF
 
 const sharedContextCache = new antlr4.PredictionContextCache();
 
-export default class diagramParser extends antlr4.Parser {
+export default class DiagramParser extends antlr4.Parser {
 
-    static grammarFileName = "diagram.g4";
-    static literalNames = [ null, "'global:'", "'section:'", "'('", "')'", 
-                            "'['", "']'", "'='" ];
-    static symbolicNames = [ null, null, null, null, null, null, null, null, 
-                             "ARROW", "SYMBOL", "ATTR", "WS", "COMMENT", 
-                             "LINE_COMMENT" ];
+    static grammarFileName = "DiagramParser.g4";
+    static literalNames = [ null, "'global:'", "'section:'", null, null, 
+                            null, "'{'", null, "'('", "')'", "'['", "']'", 
+                            "'='" ];
+    static symbolicNames = [ null, "GLOBAL", "SECTION", "ARROW", "SYMBOL", 
+                             "ATTR", "CURL_OPEN", "CURL_CLOSE", "OPEN_PARENTHESES", 
+                             "CLOSE_PARENTHESES", "OPEN_BRACKET", "CLOSE_BRACKET", 
+                             "EQUALS", "COMMENT", "LINE_COMMENT", "WS", 
+                             "TEXT" ];
     static ruleNames = [ "program", "definitions", "connections", "definition_list", 
                          "definition", "connection_list", "connection", 
                          "connector", "wrapper", "inner_wrapper", "single", 
-                         "attributes", "attribute" ];
+                         "attributes", "attribute", "description", "description_string" ];
 
     constructor(input) {
         super(input);
         this._interp = new antlr4.atn.ParserATNSimulator(this, atn, decisionsToDFA, sharedContextCache);
-        this.ruleNames = diagramParser.ruleNames;
-        this.literalNames = diagramParser.literalNames;
-        this.symbolicNames = diagramParser.symbolicNames;
+        this.ruleNames = DiagramParser.ruleNames;
+        this.literalNames = DiagramParser.literalNames;
+        this.symbolicNames = DiagramParser.symbolicNames;
     }
 
     get atn() {
@@ -102,24 +117,24 @@ export default class diagramParser extends antlr4.Parser {
 
 	program() {
 	    let localctx = new ProgramContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 0, diagramParser.RULE_program);
+	    this.enterRule(localctx, 0, DiagramParser.RULE_program);
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 26;
-	        this.definitions();
 	        this.state = 30;
+	        this.definitions();
+	        this.state = 34;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        while(_la===diagramParser.T__1) {
-	            this.state = 27;
+	        while(_la===DiagramParser.SECTION) {
+	            this.state = 31;
 	            this.connections();
-	            this.state = 32;
+	            this.state = 36;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
-	        this.state = 33;
-	        this.match(diagramParser.EOF);
+	        this.state = 37;
+	        this.match(DiagramParser.EOF);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -138,21 +153,21 @@ export default class diagramParser extends antlr4.Parser {
 
 	definitions() {
 	    let localctx = new DefinitionsContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 2, diagramParser.RULE_definitions);
+	    this.enterRule(localctx, 2, DiagramParser.RULE_definitions);
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 35;
-	        this.match(diagramParser.T__0);
-	        this.state = 37;
+	        this.state = 39;
+	        this.match(DiagramParser.GLOBAL);
+	        this.state = 41;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        if(_la===diagramParser.T__4) {
-	            this.state = 36;
+	        if(_la===DiagramParser.OPEN_BRACKET) {
+	            this.state = 40;
 	            this.attributes();
 	        }
 
-	        this.state = 39;
+	        this.state = 43;
 	        this.definition_list();
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -172,21 +187,21 @@ export default class diagramParser extends antlr4.Parser {
 
 	connections() {
 	    let localctx = new ConnectionsContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 4, diagramParser.RULE_connections);
+	    this.enterRule(localctx, 4, DiagramParser.RULE_connections);
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 41;
-	        this.match(diagramParser.T__1);
-	        this.state = 43;
+	        this.state = 45;
+	        this.match(DiagramParser.SECTION);
+	        this.state = 47;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        if(_la===diagramParser.T__4) {
-	            this.state = 42;
+	        if(_la===DiagramParser.OPEN_BRACKET) {
+	            this.state = 46;
 	            this.attributes();
 	        }
 
-	        this.state = 45;
+	        this.state = 49;
 	        this.connection_list();
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
@@ -206,20 +221,20 @@ export default class diagramParser extends antlr4.Parser {
 
 	definition_list() {
 	    let localctx = new Definition_listContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 6, diagramParser.RULE_definition_list);
+	    this.enterRule(localctx, 6, DiagramParser.RULE_definition_list);
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 48; 
+	        this.state = 52; 
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        do {
-	            this.state = 47;
+	            this.state = 51;
 	            this.definition();
-	            this.state = 50; 
+	            this.state = 54; 
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
-	        } while(_la===diagramParser.SYMBOL);
+	        } while(_la===DiagramParser.SYMBOL);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -238,18 +253,26 @@ export default class diagramParser extends antlr4.Parser {
 
 	definition() {
 	    let localctx = new DefinitionContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 8, diagramParser.RULE_definition);
+	    this.enterRule(localctx, 8, DiagramParser.RULE_definition);
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 52;
-	        this.match(diagramParser.SYMBOL);
-	        this.state = 54;
+	        this.state = 56;
+	        this.match(DiagramParser.SYMBOL);
+	        this.state = 58;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        if(_la===diagramParser.T__4) {
-	            this.state = 53;
+	        if(_la===DiagramParser.OPEN_BRACKET) {
+	            this.state = 57;
 	            this.attributes();
+	        }
+
+	        this.state = 61;
+	        this._errHandler.sync(this);
+	        _la = this._input.LA(1);
+	        if(_la===DiagramParser.CURL_OPEN) {
+	            this.state = 60;
+	            this.description();
 	        }
 
 	    } catch (re) {
@@ -270,20 +293,20 @@ export default class diagramParser extends antlr4.Parser {
 
 	connection_list() {
 	    let localctx = new Connection_listContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 10, diagramParser.RULE_connection_list);
+	    this.enterRule(localctx, 10, DiagramParser.RULE_connection_list);
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 57; 
+	        this.state = 64; 
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
 	        do {
-	            this.state = 56;
+	            this.state = 63;
 	            this.connection();
-	            this.state = 59; 
+	            this.state = 66; 
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
-	        } while(_la===diagramParser.SYMBOL);
+	        } while(_la===DiagramParser.SYMBOL);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -302,51 +325,75 @@ export default class diagramParser extends antlr4.Parser {
 
 	connection() {
 	    let localctx = new ConnectionContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 12, diagramParser.RULE_connection);
+	    this.enterRule(localctx, 12, DiagramParser.RULE_connection);
 	    var _la = 0; // Token type
 	    try {
-	        this.state = 73;
+	        this.state = 89;
 	        this._errHandler.sync(this);
-	        var la_ = this._interp.adaptivePredict(this._input,9,this._ctx);
+	        var la_ = this._interp.adaptivePredict(this._input,13,this._ctx);
 	        switch(la_) {
 	        case 1:
 	            this.enterOuterAlt(localctx, 1);
-	            this.state = 61;
+	            this.state = 68;
 	            this.connector();
-	            this.state = 63;
+	            this.state = 70;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
-	            if(_la===diagramParser.T__4) {
-	                this.state = 62;
+	            if(_la===DiagramParser.OPEN_BRACKET) {
+	                this.state = 69;
 	                this.attributes();
+	            }
+
+	            this.state = 73;
+	            this._errHandler.sync(this);
+	            _la = this._input.LA(1);
+	            if(_la===DiagramParser.CURL_OPEN) {
+	                this.state = 72;
+	                this.description();
 	            }
 
 	            break;
 
 	        case 2:
 	            this.enterOuterAlt(localctx, 2);
-	            this.state = 65;
+	            this.state = 75;
 	            this.wrapper();
-	            this.state = 67;
+	            this.state = 77;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
-	            if(_la===diagramParser.T__4) {
-	                this.state = 66;
+	            if(_la===DiagramParser.OPEN_BRACKET) {
+	                this.state = 76;
 	                this.attributes();
+	            }
+
+	            this.state = 80;
+	            this._errHandler.sync(this);
+	            _la = this._input.LA(1);
+	            if(_la===DiagramParser.CURL_OPEN) {
+	                this.state = 79;
+	                this.description();
 	            }
 
 	            break;
 
 	        case 3:
 	            this.enterOuterAlt(localctx, 3);
-	            this.state = 69;
+	            this.state = 82;
 	            this.single();
-	            this.state = 71;
+	            this.state = 84;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
-	            if(_la===diagramParser.T__4) {
-	                this.state = 70;
+	            if(_la===DiagramParser.OPEN_BRACKET) {
+	                this.state = 83;
 	                this.attributes();
+	            }
+
+	            this.state = 87;
+	            this._errHandler.sync(this);
+	            _la = this._input.LA(1);
+	            if(_la===DiagramParser.CURL_OPEN) {
+	                this.state = 86;
+	                this.description();
 	            }
 
 	            break;
@@ -370,15 +417,15 @@ export default class diagramParser extends antlr4.Parser {
 
 	connector() {
 	    let localctx = new ConnectorContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 14, diagramParser.RULE_connector);
+	    this.enterRule(localctx, 14, DiagramParser.RULE_connector);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 75;
-	        this.match(diagramParser.SYMBOL);
-	        this.state = 76;
-	        this.match(diagramParser.ARROW);
-	        this.state = 77;
-	        this.match(diagramParser.SYMBOL);
+	        this.state = 91;
+	        this.match(DiagramParser.SYMBOL);
+	        this.state = 92;
+	        this.match(DiagramParser.ARROW);
+	        this.state = 93;
+	        this.match(DiagramParser.SYMBOL);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -397,17 +444,17 @@ export default class diagramParser extends antlr4.Parser {
 
 	wrapper() {
 	    let localctx = new WrapperContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 16, diagramParser.RULE_wrapper);
+	    this.enterRule(localctx, 16, DiagramParser.RULE_wrapper);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 79;
-	        this.match(diagramParser.SYMBOL);
-	        this.state = 80;
-	        this.match(diagramParser.T__2);
-	        this.state = 81;
+	        this.state = 95;
+	        this.match(DiagramParser.SYMBOL);
+	        this.state = 96;
+	        this.match(DiagramParser.OPEN_PARENTHESES);
+	        this.state = 97;
 	        this.inner_wrapper();
-	        this.state = 82;
-	        this.match(diagramParser.T__3);
+	        this.state = 98;
+	        this.match(DiagramParser.CLOSE_PARENTHESES);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -426,17 +473,17 @@ export default class diagramParser extends antlr4.Parser {
 
 	inner_wrapper() {
 	    let localctx = new Inner_wrapperContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 18, diagramParser.RULE_inner_wrapper);
+	    this.enterRule(localctx, 18, DiagramParser.RULE_inner_wrapper);
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 87;
+	        this.state = 103;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        while(_la===diagramParser.SYMBOL) {
-	            this.state = 84;
-	            this.match(diagramParser.SYMBOL);
-	            this.state = 89;
+	        while(_la===DiagramParser.SYMBOL) {
+	            this.state = 100;
+	            this.match(DiagramParser.SYMBOL);
+	            this.state = 105;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
@@ -458,11 +505,11 @@ export default class diagramParser extends antlr4.Parser {
 
 	single() {
 	    let localctx = new SingleContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 20, diagramParser.RULE_single);
+	    this.enterRule(localctx, 20, DiagramParser.RULE_single);
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 90;
-	        this.match(diagramParser.SYMBOL);
+	        this.state = 106;
+	        this.match(DiagramParser.SYMBOL);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -481,24 +528,24 @@ export default class diagramParser extends antlr4.Parser {
 
 	attributes() {
 	    let localctx = new AttributesContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 22, diagramParser.RULE_attributes);
+	    this.enterRule(localctx, 22, DiagramParser.RULE_attributes);
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 92;
-	        this.match(diagramParser.T__4);
-	        this.state = 96;
+	        this.state = 108;
+	        this.match(DiagramParser.OPEN_BRACKET);
+	        this.state = 112;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        while(_la===diagramParser.ATTR) {
-	            this.state = 93;
+	        while(_la===DiagramParser.ATTR) {
+	            this.state = 109;
 	            this.attribute();
-	            this.state = 98;
+	            this.state = 114;
 	            this._errHandler.sync(this);
 	            _la = this._input.LA(1);
 	        }
-	        this.state = 99;
-	        this.match(diagramParser.T__5);
+	        this.state = 115;
+	        this.match(DiagramParser.CLOSE_BRACKET);
 	    } catch (re) {
 	    	if(re instanceof antlr4.error.RecognitionException) {
 		        localctx.exception = re;
@@ -517,20 +564,20 @@ export default class diagramParser extends antlr4.Parser {
 
 	attribute() {
 	    let localctx = new AttributeContext(this, this._ctx, this.state);
-	    this.enterRule(localctx, 24, diagramParser.RULE_attribute);
+	    this.enterRule(localctx, 24, DiagramParser.RULE_attribute);
 	    var _la = 0; // Token type
 	    try {
 	        this.enterOuterAlt(localctx, 1);
-	        this.state = 101;
-	        this.match(diagramParser.ATTR);
-	        this.state = 104;
+	        this.state = 117;
+	        this.match(DiagramParser.ATTR);
+	        this.state = 120;
 	        this._errHandler.sync(this);
 	        _la = this._input.LA(1);
-	        if(_la===diagramParser.T__6) {
-	            this.state = 102;
-	            this.match(diagramParser.T__6);
-	            this.state = 103;
-	            this.match(diagramParser.ATTR);
+	        if(_la===DiagramParser.EQUALS) {
+	            this.state = 118;
+	            this.match(DiagramParser.EQUALS);
+	            this.state = 119;
+	            this.match(DiagramParser.ATTR);
 	        }
 
 	    } catch (re) {
@@ -548,36 +595,91 @@ export default class diagramParser extends antlr4.Parser {
 	}
 
 
+
+	description() {
+	    let localctx = new DescriptionContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 26, DiagramParser.RULE_description);
+	    try {
+	        this.enterOuterAlt(localctx, 1);
+	        this.state = 122;
+	        this.match(DiagramParser.CURL_OPEN);
+	        this.state = 123;
+	        this.description_string();
+	        this.state = 124;
+	        this.match(DiagramParser.CURL_CLOSE);
+	    } catch (re) {
+	    	if(re instanceof antlr4.error.RecognitionException) {
+		        localctx.exception = re;
+		        this._errHandler.reportError(this, re);
+		        this._errHandler.recover(this, re);
+		    } else {
+		    	throw re;
+		    }
+	    } finally {
+	        this.exitRule();
+	    }
+	    return localctx;
+	}
+
+
+
+	description_string() {
+	    let localctx = new Description_stringContext(this, this._ctx, this.state);
+	    this.enterRule(localctx, 28, DiagramParser.RULE_description_string);
+	    try {
+	        this.enterOuterAlt(localctx, 1);
+	        this.state = 126;
+	        this.match(DiagramParser.TEXT);
+	    } catch (re) {
+	    	if(re instanceof antlr4.error.RecognitionException) {
+		        localctx.exception = re;
+		        this._errHandler.reportError(this, re);
+		        this._errHandler.recover(this, re);
+		    } else {
+		    	throw re;
+		    }
+	    } finally {
+	        this.exitRule();
+	    }
+	    return localctx;
+	}
+
+
 }
 
-diagramParser.EOF = antlr4.Token.EOF;
-diagramParser.T__0 = 1;
-diagramParser.T__1 = 2;
-diagramParser.T__2 = 3;
-diagramParser.T__3 = 4;
-diagramParser.T__4 = 5;
-diagramParser.T__5 = 6;
-diagramParser.T__6 = 7;
-diagramParser.ARROW = 8;
-diagramParser.SYMBOL = 9;
-diagramParser.ATTR = 10;
-diagramParser.WS = 11;
-diagramParser.COMMENT = 12;
-diagramParser.LINE_COMMENT = 13;
+DiagramParser.EOF = antlr4.Token.EOF;
+DiagramParser.GLOBAL = 1;
+DiagramParser.SECTION = 2;
+DiagramParser.ARROW = 3;
+DiagramParser.SYMBOL = 4;
+DiagramParser.ATTR = 5;
+DiagramParser.CURL_OPEN = 6;
+DiagramParser.CURL_CLOSE = 7;
+DiagramParser.OPEN_PARENTHESES = 8;
+DiagramParser.CLOSE_PARENTHESES = 9;
+DiagramParser.OPEN_BRACKET = 10;
+DiagramParser.CLOSE_BRACKET = 11;
+DiagramParser.EQUALS = 12;
+DiagramParser.COMMENT = 13;
+DiagramParser.LINE_COMMENT = 14;
+DiagramParser.WS = 15;
+DiagramParser.TEXT = 16;
 
-diagramParser.RULE_program = 0;
-diagramParser.RULE_definitions = 1;
-diagramParser.RULE_connections = 2;
-diagramParser.RULE_definition_list = 3;
-diagramParser.RULE_definition = 4;
-diagramParser.RULE_connection_list = 5;
-diagramParser.RULE_connection = 6;
-diagramParser.RULE_connector = 7;
-diagramParser.RULE_wrapper = 8;
-diagramParser.RULE_inner_wrapper = 9;
-diagramParser.RULE_single = 10;
-diagramParser.RULE_attributes = 11;
-diagramParser.RULE_attribute = 12;
+DiagramParser.RULE_program = 0;
+DiagramParser.RULE_definitions = 1;
+DiagramParser.RULE_connections = 2;
+DiagramParser.RULE_definition_list = 3;
+DiagramParser.RULE_definition = 4;
+DiagramParser.RULE_connection_list = 5;
+DiagramParser.RULE_connection = 6;
+DiagramParser.RULE_connector = 7;
+DiagramParser.RULE_wrapper = 8;
+DiagramParser.RULE_inner_wrapper = 9;
+DiagramParser.RULE_single = 10;
+DiagramParser.RULE_attributes = 11;
+DiagramParser.RULE_attribute = 12;
+DiagramParser.RULE_description = 13;
+DiagramParser.RULE_description_string = 14;
 
 class ProgramContext extends antlr4.ParserRuleContext {
 
@@ -590,7 +692,7 @@ class ProgramContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = diagramParser.RULE_program;
+        this.ruleIndex = DiagramParser.RULE_program;
     }
 
 	definitions() {
@@ -598,7 +700,7 @@ class ProgramContext extends antlr4.ParserRuleContext {
 	};
 
 	EOF() {
-	    return this.getToken(diagramParser.EOF, 0);
+	    return this.getToken(DiagramParser.EOF, 0);
 	};
 
 	connections = function(i) {
@@ -613,19 +715,19 @@ class ProgramContext extends antlr4.ParserRuleContext {
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.enterProgram(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.exitProgram(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof diagramVisitor ) {
+	    if ( visitor instanceof DiagramParserVisitor ) {
 	        return visitor.visitProgram(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -648,8 +750,12 @@ class DefinitionsContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = diagramParser.RULE_definitions;
+        this.ruleIndex = DiagramParser.RULE_definitions;
     }
+
+	GLOBAL() {
+	    return this.getToken(DiagramParser.GLOBAL, 0);
+	};
 
 	definition_list() {
 	    return this.getTypedRuleContext(Definition_listContext,0);
@@ -660,19 +766,19 @@ class DefinitionsContext extends antlr4.ParserRuleContext {
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.enterDefinitions(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.exitDefinitions(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof diagramVisitor ) {
+	    if ( visitor instanceof DiagramParserVisitor ) {
 	        return visitor.visitDefinitions(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -695,8 +801,12 @@ class ConnectionsContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = diagramParser.RULE_connections;
+        this.ruleIndex = DiagramParser.RULE_connections;
     }
+
+	SECTION() {
+	    return this.getToken(DiagramParser.SECTION, 0);
+	};
 
 	connection_list() {
 	    return this.getTypedRuleContext(Connection_listContext,0);
@@ -707,19 +817,19 @@ class ConnectionsContext extends antlr4.ParserRuleContext {
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.enterConnections(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.exitConnections(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof diagramVisitor ) {
+	    if ( visitor instanceof DiagramParserVisitor ) {
 	        return visitor.visitConnections(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -742,7 +852,7 @@ class Definition_listContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = diagramParser.RULE_definition_list;
+        this.ruleIndex = DiagramParser.RULE_definition_list;
     }
 
 	definition = function(i) {
@@ -757,19 +867,19 @@ class Definition_listContext extends antlr4.ParserRuleContext {
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.enterDefinition_list(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.exitDefinition_list(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof diagramVisitor ) {
+	    if ( visitor instanceof DiagramParserVisitor ) {
 	        return visitor.visitDefinition_list(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -792,31 +902,35 @@ class DefinitionContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = diagramParser.RULE_definition;
+        this.ruleIndex = DiagramParser.RULE_definition;
     }
 
 	SYMBOL() {
-	    return this.getToken(diagramParser.SYMBOL, 0);
+	    return this.getToken(DiagramParser.SYMBOL, 0);
 	};
 
 	attributes() {
 	    return this.getTypedRuleContext(AttributesContext,0);
 	};
 
+	description() {
+	    return this.getTypedRuleContext(DescriptionContext,0);
+	};
+
 	enterRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.enterDefinition(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.exitDefinition(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof diagramVisitor ) {
+	    if ( visitor instanceof DiagramParserVisitor ) {
 	        return visitor.visitDefinition(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -839,7 +953,7 @@ class Connection_listContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = diagramParser.RULE_connection_list;
+        this.ruleIndex = DiagramParser.RULE_connection_list;
     }
 
 	connection = function(i) {
@@ -854,19 +968,19 @@ class Connection_listContext extends antlr4.ParserRuleContext {
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.enterConnection_list(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.exitConnection_list(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof diagramVisitor ) {
+	    if ( visitor instanceof DiagramParserVisitor ) {
 	        return visitor.visitConnection_list(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -889,7 +1003,7 @@ class ConnectionContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = diagramParser.RULE_connection;
+        this.ruleIndex = DiagramParser.RULE_connection;
     }
 
 	connector() {
@@ -898,6 +1012,10 @@ class ConnectionContext extends antlr4.ParserRuleContext {
 
 	attributes() {
 	    return this.getTypedRuleContext(AttributesContext,0);
+	};
+
+	description() {
+	    return this.getTypedRuleContext(DescriptionContext,0);
 	};
 
 	wrapper() {
@@ -909,19 +1027,19 @@ class ConnectionContext extends antlr4.ParserRuleContext {
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.enterConnection(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.exitConnection(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof diagramVisitor ) {
+	    if ( visitor instanceof DiagramParserVisitor ) {
 	        return visitor.visitConnection(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -944,7 +1062,7 @@ class ConnectorContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = diagramParser.RULE_connector;
+        this.ruleIndex = DiagramParser.RULE_connector;
     }
 
 	SYMBOL = function(i) {
@@ -952,31 +1070,31 @@ class ConnectorContext extends antlr4.ParserRuleContext {
 			i = null;
 		}
 	    if(i===null) {
-	        return this.getTokens(diagramParser.SYMBOL);
+	        return this.getTokens(DiagramParser.SYMBOL);
 	    } else {
-	        return this.getToken(diagramParser.SYMBOL, i);
+	        return this.getToken(DiagramParser.SYMBOL, i);
 	    }
 	};
 
 
 	ARROW() {
-	    return this.getToken(diagramParser.ARROW, 0);
+	    return this.getToken(DiagramParser.ARROW, 0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.enterConnector(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.exitConnector(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof diagramVisitor ) {
+	    if ( visitor instanceof DiagramParserVisitor ) {
 	        return visitor.visitConnector(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -999,31 +1117,39 @@ class WrapperContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = diagramParser.RULE_wrapper;
+        this.ruleIndex = DiagramParser.RULE_wrapper;
     }
 
 	SYMBOL() {
-	    return this.getToken(diagramParser.SYMBOL, 0);
+	    return this.getToken(DiagramParser.SYMBOL, 0);
+	};
+
+	OPEN_PARENTHESES() {
+	    return this.getToken(DiagramParser.OPEN_PARENTHESES, 0);
 	};
 
 	inner_wrapper() {
 	    return this.getTypedRuleContext(Inner_wrapperContext,0);
 	};
 
+	CLOSE_PARENTHESES() {
+	    return this.getToken(DiagramParser.CLOSE_PARENTHESES, 0);
+	};
+
 	enterRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.enterWrapper(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.exitWrapper(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof diagramVisitor ) {
+	    if ( visitor instanceof DiagramParserVisitor ) {
 	        return visitor.visitWrapper(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -1046,7 +1172,7 @@ class Inner_wrapperContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = diagramParser.RULE_inner_wrapper;
+        this.ruleIndex = DiagramParser.RULE_inner_wrapper;
     }
 
 	SYMBOL = function(i) {
@@ -1054,27 +1180,27 @@ class Inner_wrapperContext extends antlr4.ParserRuleContext {
 			i = null;
 		}
 	    if(i===null) {
-	        return this.getTokens(diagramParser.SYMBOL);
+	        return this.getTokens(DiagramParser.SYMBOL);
 	    } else {
-	        return this.getToken(diagramParser.SYMBOL, i);
+	        return this.getToken(DiagramParser.SYMBOL, i);
 	    }
 	};
 
 
 	enterRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.enterInner_wrapper(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.exitInner_wrapper(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof diagramVisitor ) {
+	    if ( visitor instanceof DiagramParserVisitor ) {
 	        return visitor.visitInner_wrapper(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -1097,27 +1223,27 @@ class SingleContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = diagramParser.RULE_single;
+        this.ruleIndex = DiagramParser.RULE_single;
     }
 
 	SYMBOL() {
-	    return this.getToken(diagramParser.SYMBOL, 0);
+	    return this.getToken(DiagramParser.SYMBOL, 0);
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.enterSingle(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.exitSingle(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof diagramVisitor ) {
+	    if ( visitor instanceof DiagramParserVisitor ) {
 	        return visitor.visitSingle(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -1140,8 +1266,16 @@ class AttributesContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = diagramParser.RULE_attributes;
+        this.ruleIndex = DiagramParser.RULE_attributes;
     }
+
+	OPEN_BRACKET() {
+	    return this.getToken(DiagramParser.OPEN_BRACKET, 0);
+	};
+
+	CLOSE_BRACKET() {
+	    return this.getToken(DiagramParser.CLOSE_BRACKET, 0);
+	};
 
 	attribute = function(i) {
 	    if(i===undefined) {
@@ -1155,19 +1289,19 @@ class AttributesContext extends antlr4.ParserRuleContext {
 	};
 
 	enterRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.enterAttributes(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.exitAttributes(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof diagramVisitor ) {
+	    if ( visitor instanceof DiagramParserVisitor ) {
 	        return visitor.visitAttributes(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -1190,7 +1324,7 @@ class AttributeContext extends antlr4.ParserRuleContext {
         }
         super(parent, invokingState);
         this.parser = parser;
-        this.ruleIndex = diagramParser.RULE_attribute;
+        this.ruleIndex = DiagramParser.RULE_attribute;
     }
 
 	ATTR = function(i) {
@@ -1198,27 +1332,31 @@ class AttributeContext extends antlr4.ParserRuleContext {
 			i = null;
 		}
 	    if(i===null) {
-	        return this.getTokens(diagramParser.ATTR);
+	        return this.getTokens(DiagramParser.ATTR);
 	    } else {
-	        return this.getToken(diagramParser.ATTR, i);
+	        return this.getToken(DiagramParser.ATTR, i);
 	    }
 	};
 
 
+	EQUALS() {
+	    return this.getToken(DiagramParser.EQUALS, 0);
+	};
+
 	enterRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.enterAttribute(this);
 		}
 	}
 
 	exitRule(listener) {
-	    if(listener instanceof diagramListener ) {
+	    if(listener instanceof DiagramParserListener ) {
 	        listener.exitAttribute(this);
 		}
 	}
 
 	accept(visitor) {
-	    if ( visitor instanceof diagramVisitor ) {
+	    if ( visitor instanceof DiagramParserVisitor ) {
 	        return visitor.visitAttribute(this);
 	    } else {
 	        return visitor.visitChildren(this);
@@ -1230,17 +1368,113 @@ class AttributeContext extends antlr4.ParserRuleContext {
 
 
 
+class DescriptionContext extends antlr4.ParserRuleContext {
 
-diagramParser.ProgramContext = ProgramContext; 
-diagramParser.DefinitionsContext = DefinitionsContext; 
-diagramParser.ConnectionsContext = ConnectionsContext; 
-diagramParser.Definition_listContext = Definition_listContext; 
-diagramParser.DefinitionContext = DefinitionContext; 
-diagramParser.Connection_listContext = Connection_listContext; 
-diagramParser.ConnectionContext = ConnectionContext; 
-diagramParser.ConnectorContext = ConnectorContext; 
-diagramParser.WrapperContext = WrapperContext; 
-diagramParser.Inner_wrapperContext = Inner_wrapperContext; 
-diagramParser.SingleContext = SingleContext; 
-diagramParser.AttributesContext = AttributesContext; 
-diagramParser.AttributeContext = AttributeContext; 
+    constructor(parser, parent, invokingState) {
+        if(parent===undefined) {
+            parent = null;
+        }
+        if(invokingState===undefined || invokingState===null) {
+            invokingState = -1;
+        }
+        super(parent, invokingState);
+        this.parser = parser;
+        this.ruleIndex = DiagramParser.RULE_description;
+    }
+
+	CURL_OPEN() {
+	    return this.getToken(DiagramParser.CURL_OPEN, 0);
+	};
+
+	description_string() {
+	    return this.getTypedRuleContext(Description_stringContext,0);
+	};
+
+	CURL_CLOSE() {
+	    return this.getToken(DiagramParser.CURL_CLOSE, 0);
+	};
+
+	enterRule(listener) {
+	    if(listener instanceof DiagramParserListener ) {
+	        listener.enterDescription(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof DiagramParserListener ) {
+	        listener.exitDescription(this);
+		}
+	}
+
+	accept(visitor) {
+	    if ( visitor instanceof DiagramParserVisitor ) {
+	        return visitor.visitDescription(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
+	}
+
+
+}
+
+
+
+class Description_stringContext extends antlr4.ParserRuleContext {
+
+    constructor(parser, parent, invokingState) {
+        if(parent===undefined) {
+            parent = null;
+        }
+        if(invokingState===undefined || invokingState===null) {
+            invokingState = -1;
+        }
+        super(parent, invokingState);
+        this.parser = parser;
+        this.ruleIndex = DiagramParser.RULE_description_string;
+    }
+
+	TEXT() {
+	    return this.getToken(DiagramParser.TEXT, 0);
+	};
+
+	enterRule(listener) {
+	    if(listener instanceof DiagramParserListener ) {
+	        listener.enterDescription_string(this);
+		}
+	}
+
+	exitRule(listener) {
+	    if(listener instanceof DiagramParserListener ) {
+	        listener.exitDescription_string(this);
+		}
+	}
+
+	accept(visitor) {
+	    if ( visitor instanceof DiagramParserVisitor ) {
+	        return visitor.visitDescription_string(this);
+	    } else {
+	        return visitor.visitChildren(this);
+	    }
+	}
+
+
+}
+
+
+
+
+DiagramParser.ProgramContext = ProgramContext; 
+DiagramParser.DefinitionsContext = DefinitionsContext; 
+DiagramParser.ConnectionsContext = ConnectionsContext; 
+DiagramParser.Definition_listContext = Definition_listContext; 
+DiagramParser.DefinitionContext = DefinitionContext; 
+DiagramParser.Connection_listContext = Connection_listContext; 
+DiagramParser.ConnectionContext = ConnectionContext; 
+DiagramParser.ConnectorContext = ConnectorContext; 
+DiagramParser.WrapperContext = WrapperContext; 
+DiagramParser.Inner_wrapperContext = Inner_wrapperContext; 
+DiagramParser.SingleContext = SingleContext; 
+DiagramParser.AttributesContext = AttributesContext; 
+DiagramParser.AttributeContext = AttributeContext; 
+DiagramParser.DescriptionContext = DescriptionContext; 
+DiagramParser.Description_stringContext = Description_stringContext; 

@@ -18,8 +18,7 @@ export const Symbols: FunctionComponent = () => {
             {Object.entries(state?.table || {}).map(([key, value]) => (
                 <li key={key}>
                     <>
-                        {key} {value.map(attributes => Object.entries(attributes).map(([k, v]) => `${k}=${v}`))
-                            .join(', ')}
+                        {Object.entries(value.attributes).map(([k, v]) => `${k}=${v}`).join(', ')}
                     </>
                 </li>
             ))}

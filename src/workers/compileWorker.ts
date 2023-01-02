@@ -1,8 +1,8 @@
 import antlr4 from 'antlr4';
-import Lexer from '../diagram/diagramLexer';
-import Parser from '../diagram/diagramParser';
+import Lexer from '../diagram/DiagramLexer';
+import Parser from '../diagram/DiagramParser';
 import Visitor from '../Visitor';
-import DiagramListener from '../diagram/diagramListener'
+import DiagramListener from '../diagram/DiagramParserListener';
 import type ErrorListener  from 'antlr4/error/ErrorListener';
 import type RecognitionException from 'antlr4/error/RecognitionException';
 import type Recognizer  from 'antlr4/Recognizer';
@@ -21,7 +21,7 @@ self.onmessage = function(event) {
     let errors: ErrorStruct[] = [];
 
     const state: State = {
-        attributes: [],
+        attributes: {},
         table: {},
         sections: {},
         tree: {},
